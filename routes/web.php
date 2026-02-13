@@ -8,4 +8,4 @@ Route::get('/', function () {
 });
 // 
 
-Route::resource('/admin/students', StudentController::class);
+Route::resource('/admin', StudentController::class);
