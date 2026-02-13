@@ -57,3 +57,4 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+I want to create a company student certification management system for my IT company using Laravel Blade and mysql database | Where admin will control student certificates and students can verify or get certificates and all their information will be displayed with the certificate
