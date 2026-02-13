@@ -9,3 +9,5 @@ Route::get('/', function () {
 // 
 
 Route::resource('/admin', StudentController::class);
+// 
+Route::resource('/admin/add-student', StudentController::class);

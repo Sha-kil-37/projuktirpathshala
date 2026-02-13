@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -13,7 +14,7 @@ class StudentController extends Controller
     public function index()
     {
         //
-        return view ('students.index');
+        return view('students.index');
     }
 
     /**
@@ -22,7 +23,7 @@ class StudentController extends Controller
     public function create()
     {
         //
-        return view ('students.create');
+        return view('students.create');
     }
 
     /**
@@ -31,6 +32,29 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:students,email',
+            'phone' => 'nullable|string|max:20',
+            'address' => 'nullable|string',
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        // Handle file upload
+        if ($request->hasFile('photo')) {
+            $photoPath = $request->file('photo')->store('photos', 'public');
+        } else {
+            $photoPath = null;
+        }
+        // Create student record
+        Student::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'photo' => $photoPath ?? null,
+            "timestamps" => now(),
+        ]);
+        return redirect()->back('/admin')->with('success', 'Student created successfully.');
     }
 
     /**
@@ -39,7 +63,7 @@ class StudentController extends Controller
     public function show(string $id)
     {
         //
-        return view ('students.show');
+        return view('students.show');
     }
 
     /**
@@ -48,7 +72,7 @@ class StudentController extends Controller
     public function edit(string $id)
     {
         //
-        return view ('students.edit');
+        return view('students.edit');
     }
 
     /**
@@ -57,6 +81,7 @@ class StudentController extends Controller
     public function update(Request $request, string $id)
     {
         //
+
     }
 
     /**

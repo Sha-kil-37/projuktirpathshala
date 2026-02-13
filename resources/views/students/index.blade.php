@@ -17,9 +17,9 @@
             </p>
             <div class="mt-10 flex justify-between border-t pt-10">
                 <div>
-                    <div class="flex gap-x-20">
+                    <div class="flex justify-between">
                         <h2 class="text-2xl font-semibold">Students List</h2>
-                        <button onclick="handleAddStudent" class="bg-blue-500 hover:bg-blue-700 text-white py-1 px-4 rounded inline-block cursor-pointer">Add Student</button>
+                        <button onclick="window.location.href='/admin/add-student'" class="inline-block cursor-pointer underline hover:text-blue-600 transition-all duration-100">Add New</button>
                     </div>
                     <div class="mt-5">
                         <table class="min-w-full bg-white border">
@@ -28,23 +28,24 @@
                                     <th class="py-2 px-4 border-b">ID</th>
                                     <th class="py-2 px-4 border-b">Name</th>
                                     <th class="py-2 px-4 border-b">Email</th>
+                                    <th class="py-2 px-4 border-b">Address</th>
                                     <th class="py-2 px-4 border-b">Actions</th>
                                 </tr>
                             </thead>
-
                         </table>
-
                     </div>
-
                 </div>
                 <div>
                     <div class="flex gap-x-20">
                         <h2 class="text-2xl font-semibold">Student Certificates</h2>
-                        <button onclick="handleAddCertificate" class="bg-blue-500 hover:bg-blue-700 text-white py-1 px-4 rounded inline-block cursor-pointer">Add Certificate</button>
+                        <button onclick="handleAddCertificate()" class="bg-blue-500 hover:bg-blue-700 text-white py-1 px-4 rounded inline-block cursor-pointer">Add Certificate</button>
                     </div>
                 </div>
             </div>
+        </div>
     </section>
+   
+   
 </body>
 
 </html>
